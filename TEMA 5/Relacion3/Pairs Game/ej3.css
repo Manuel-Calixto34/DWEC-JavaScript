@@ -1,0 +1,23 @@
+html{
+    background-color: aqua;
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+#contador{
+    color: white;
+    text-align: center;
+    font-size: x-large;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+}

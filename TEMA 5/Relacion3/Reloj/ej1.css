@@ -1,0 +1,31 @@
+html{
+    background-color: orange;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+#contador{
+    color: white;
+    text-align: center;
+    font-size: x-large;
+}
+
+#botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    background-color: orange;
+    color: white;
+}

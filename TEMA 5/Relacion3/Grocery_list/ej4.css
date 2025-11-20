@@ -1,0 +1,30 @@
+body{
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;       
+}
+
+#bloque{
+    height: 75vh;
+    background-color: white;
+    width: 75vh;
+}
+
+#contenido{
+    margin-left: 150px;
+    margin-top: 20px;
+}
+
+html{
+    background-color: lightblue;
+}
+
+button{
+    background-color: lightblue;
+}
+
+input{
+    background-color: lightblue;
+    border-color: solid lightblue;
+}

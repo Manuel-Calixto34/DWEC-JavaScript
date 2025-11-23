@@ -6,20 +6,21 @@ export default function ListaCompra(){
     const [listaCompra,setListaCompra] = useState(["pan","azucar"]);
     const [contenido,setContenido] = useState("");
 
-    function pulsoBoton(){
+    function añadirElemento(){
         setListaCompra([...listaCompra,contenido]);
         setContenido("");
     }
 
     function actualizarElemento(nuevoContenido,id){
-        const nuevoArray = [...listaCompra];
-        nuevoArray[id] = nuevoContenido;
-        setListaCompra(nuevoArray);
+        const nuevaLista = [...listaCompra];
+        nuevaLista[id] = nuevoContenido;
+        setListaCompra(nuevaLista);
     }
 
     function eliminarElemento(indice){
-        const nuevoArray = [...listaCompra] 
-        elemento = listaCompra.splice(indice,1);
+        const nuevaLista = [...listaCompra] 
+        nuevaLista.splice(indice,1);
+        setListaCompra(nuevaLista);
     }
 
     function borrarLista(){
@@ -35,7 +36,7 @@ export default function ListaCompra(){
     return (
         <>
             <input value={contenido} onChange={e => setContenido(e.target.value)}></input>
-            <button onClick={pulsoBoton}>Añadir</button>
+            <button onClick={añadirElemento}>Añadir</button>
             {maqueta}
             <Pie onClick={borrarLista}></Pie>
         </>

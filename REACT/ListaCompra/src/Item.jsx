@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { jsx } from "react/jsx-runtime";
 
-export default function Item({nombre,onDelete,onNuevoTexto}){
+export default function Item({nombre,onDelete,onNuevoTexto,id}){
     const [modoEdicion,setModoEdicion] = useState(false);
-    const [nombreEditado,setNombreEditado] = useState({nombre})
+    const [nombreEditado,setNombreEditado] = useState(nombre);
     let jsxresultado;
     function entraEnEdicion(){
         setModoEdicion(true);
@@ -11,7 +10,7 @@ export default function Item({nombre,onDelete,onNuevoTexto}){
 
     function avisaGuardarCambios(){
         setModoEdicion(false);
-        onNuevoTexto(nombreEditado);
+        onNuevoTexto(nombreEditado,id);
     }
 
     function cancelar(){
@@ -19,10 +18,11 @@ export default function Item({nombre,onDelete,onNuevoTexto}){
     }
 
     if(!modoEdicion){
-        jsxresultado = <li>{nombre} <button onClick={entraEnEdicion}>Editar</button> <button onClick={onDelete}>Eliminar</button></li>
+        jsxresultado = <li>{nombre} <button onClick={entraEnEdicion}>Editar</button> <button onClick={()=> onDelete(id)}>Eliminar</button></li>
     }else
         jsxresultado = <li><input value={nombreEditado} onChange={e => setNombreEditado(e.target.value)}/>
-        <button onClick={avisaGuardarCambios}>Guardar cambios</button></li>
+        <button onClick={avisaGuardarCambios}>Guardar cambios</button>
+        <button onClick={cancelar}>Cancelar cambios</button></li>
     
     return (jsxresultado);
 }

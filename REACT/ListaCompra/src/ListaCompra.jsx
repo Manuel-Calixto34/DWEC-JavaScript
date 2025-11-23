@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import Item from './Item.jsx';
+import Pie from './Pie.jsx';
 
 export default function ListaCompra(){
-    let secuenciaItems = [];
     const [listaCompra,setListaCompra] = useState(["pan","azucar"]);
     const [contenido,setContenido] = useState("");
-
-    function borrarElemento(){
-        console.log("Me avisan de que debo borrar");
-    }
 
     function pulsoBoton(){
         setListaCompra([...listaCompra,contenido]);
@@ -16,21 +12,32 @@ export default function ListaCompra(){
     }
 
     function actualizarElemento(nuevoContenido,id){
-        listaCompra[id] = nuevoContenido;
-        setListaCompra([...listaCompra])
+        const nuevoArray = [...listaCompra];
+        nuevoArray[id] = nuevoContenido;
+        setListaCompra(nuevoArray);
     }
 
-    for(let i = 0;i<listaCompra.length;i++){
-        secuenciaItems.push(<Item nombre={listaCompra[i]}></Item>)
+    function eliminarElemento(indice){
+        const nuevoArray = [...listaCompra] 
+        elemento = listaCompra.splice(indice,1);
     }
 
-    let maqueta = listaCompra.map((elementoDeArray,indice)=> <Item key={indice}></Item>)
+    function borrarLista(){
+        setListaCompra([]);
+    }
+
+    let maqueta = listaCompra.map((item,indice)=> <Item key={indice}
+            nombre={item}
+            id={indice}
+            onNuevoTexto={actualizarElemento}
+            onDelete={eliminarElemento}></Item>)
 
     return (
         <>
-            <input value={contenido} onChange={e => setContenido(e.target.value)} onNuevoTexto={(texto)=>actualizarElemento(texto,id)}></input>
+            <input value={contenido} onChange={e => setContenido(e.target.value)}></input>
             <button onClick={pulsoBoton}>Añadir</button>
             {maqueta}
+            <Pie onClick={borrarLista}></Pie>
         </>
     )
 }

@@ -1,7 +1,7 @@
-export default function Pie(){
+export default function Pie({onClick}){
     return (
         <>
-            <button>Borrar lista</button>
+            <button onClick={onClick}>Borrar lista</button>
         </>
     )
 }

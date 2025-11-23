@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../JS_VANILLA/TEMA 5/Relacion3/Grocery_list"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "REACT"
+	}
+}

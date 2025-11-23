@@ -1,0 +1,9 @@
+button{
+    background-color: red;
+    color: white;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}

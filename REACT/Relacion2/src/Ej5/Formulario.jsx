@@ -5,6 +5,7 @@ export default function Formulario(){
     const [email,setEmail] = useState("");
 
     function mostrarInfo(e){
+        e.preventDefault;
         let array = [{ nombre }, { email }];
         console.log(array);
         return <p>Nombre: {nombre} Email: {email}</p>
